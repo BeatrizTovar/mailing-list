@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +29,92 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* .App {
+  text-align: center;
 }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+} 
+    @keyframes App-logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    */
+
+    html body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-image: url('./images/abstract-background-blur-255379.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    
+    
+    .modal .modal-dialog .modal-content{
+      margin-top: 180px;
+      color: #543e5c;
+      background-color: #fff0f8;
+      font-family: 'Cormorant Upright';
+      text-align: center;
+      font-weight: bold;
+      border: 12px solid #ffc2e996;
+      line-height: 2.7em;
+    }
+    
+    .modal-backdrop {
+      background-color: #543e5c;
+    }
+    
+    .header-img {
+      width: 450px;
+    }
+    
+    .submit-btn {
+      border-radius: 50px;
+      background-color: #fff0f8;
+      border-color: #ccc;
+      color: #543e5c;
+      font-weight: bold;
+    }
+    
+    .submit-btn:hover {
+      background-color: #ffc2e92b;
+    }
+    
+    .submit-btn:active {
+      background-color: #ffc2e92b;
+    }
+    
+    .form-control {
+      border-radius: 50px;
+      text-align: center;
+      width: 50%;
+      margin: auto;
+    }
+    ::-webkit-input-placeholder {
+      font-style: italic;
+    }
