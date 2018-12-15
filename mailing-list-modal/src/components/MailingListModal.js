@@ -7,12 +7,13 @@ class MailingListModal extends React.Component {
         super(props)
         this.state = {
             open: false,
-            email: 'df',
+            email: '',
             error: false
         }
 
         this.onClose = this.onClose.bind(this)
         this.valueChange = this.valueChange.bind(this)
+        this.validateEmail = this.validateEmail.bind(this)
     }
 
     componentDidMount() {
@@ -34,10 +35,9 @@ class MailingListModal extends React.Component {
         })
     }
     validateEmail(){
-        // if(validator.isEmail(this.state.email)){
-        //     return alert("TRUE")
-        // }
-        // console.log(this.state.email)
+        if(!validator.isEmail(this.state.email)){
+            this.setState({ error: true})
+        }
     }
     render() {
         return (
@@ -57,7 +57,7 @@ class MailingListModal extends React.Component {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button className='submit-btn' onClick={this.onClose}>Yes, Count Me In!</Button>
+                        <Button className='submit-btn' onClick={this.validateEmail}>Yes, Count Me In!</Button>
                     </Modal.Footer>
                 </Modal>
             </React.Fragment>
