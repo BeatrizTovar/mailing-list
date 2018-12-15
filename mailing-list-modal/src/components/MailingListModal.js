@@ -13,20 +13,20 @@ class MailingListModal extends React.Component {
 
         this.onClose = this.onClose.bind(this)
         this.valueChange = this.valueChange.bind(this)
-        this.validateEmail = this.validateEmail.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     componentDidMount() {
+        //will open the modal upon page load
         this.setState({
             open: true
         })
     }
+
     onClose() {
         this.setState({
             open: !this.state.open
         })
-        console.log(this.state.email)
-
     }
 
     valueChange(e) {
@@ -34,11 +34,11 @@ class MailingListModal extends React.Component {
             [e.target.name]: e.target.value
         })
     }
-    validateEmail(){
-        if(!validator.isEmail(this.state.email)){
-            this.setState({ error: true})
-        }
+
+    onSubmit() {
+        //submit form function
     }
+
     render() {
         return (
             <React.Fragment>
@@ -51,13 +51,13 @@ class MailingListModal extends React.Component {
                     <Modal.Body>
                         <div>
                             By joining, you would have access to the latest news!
-                    </div>
+                        </div>
                         <div>
                             <input className='form-control' type='email' name='email' value={this.state.email} placeholder='Enter Email...' onChange={this.valueChange} />
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button className='submit-btn' onClick={this.validateEmail}>Yes, Count Me In!</Button>
+                        <Button className='submit-btn' onClick={this.onSubmit}>Yes, Count Me In!</Button>
                     </Modal.Footer>
                 </Modal>
             </React.Fragment>
