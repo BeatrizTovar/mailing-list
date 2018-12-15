@@ -1,12 +1,14 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import validator from 'validator'
 
 class MailingListModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             open: false,
-            email: ''
+            email: 'df',
+            error: false
         }
 
         this.onClose = this.onClose.bind(this)
@@ -18,11 +20,12 @@ class MailingListModal extends React.Component {
             open: true
         })
     }
-
     onClose() {
         this.setState({
             open: !this.state.open
         })
+        console.log(this.state.email)
+
     }
 
     valueChange(e) {
@@ -30,7 +33,12 @@ class MailingListModal extends React.Component {
             [e.target.name]: e.target.value
         })
     }
-
+    validateEmail(){
+        // if(validator.isEmail(this.state.email)){
+        //     return alert("TRUE")
+        // }
+        // console.log(this.state.email)
+    }
     render() {
         return (
             <React.Fragment>
