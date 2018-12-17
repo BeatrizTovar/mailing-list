@@ -1,14 +1,13 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
+const bodyParser = require('body-parser')
+const routes = require('./routes')
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({extended: false}))
 
-app.unsubscribe(function(req, res) {
-    res.send('Hello World!')
-})
+app.use('/api', routes)
 
-app.listen(8080, function() {
+app.listen(8080, ()=> {
     console.log("Now listening....")
 })
