@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import validator from 'validator'
+// import validator from 'validator'
 
 class MailingListModal extends React.Component {
     constructor(props) {
