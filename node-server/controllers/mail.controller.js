@@ -1,12 +1,10 @@
 const sgMail = require('@sendgrid/mail')
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
-sgMail.setApiKey(SENDGRID_API_KEY)
+sgMail.setApiKey("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")
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-
-const sendList = (req, res) => {
-    const { query: { to = 'test@example.com', from = 'test@example.com' } } = req;
+const sendList = (req, res) => {    const { query: { to = 'dammitSoo@dispostable.com', from = 'goddammitSoo@dispostable.com' } } = req;
     // other options could be customized further
-
+    
     const msg = {
         to,
         from,
@@ -14,6 +12,7 @@ const sendList = (req, res) => {
         text: 'and easy to do anywhere, even with Node.js',
         html: '<strong>Hello Email app</strong>',
     };
+
 
     sgMail.send(msg).then(() => {
         res.status(200).send('Hello, world!').end();
@@ -23,10 +22,5 @@ const sendList = (req, res) => {
     });
 }
 module.exports = {
-    // read,
-    sendList
+        sendList
 }
-
-// const read = (req, res) => {
-//     res.send("Hellow World!")
-// }
