@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
-// import validator from 'validator'
+import { sendEmail } from '../service/emailService'
+import validator from 'validator'
 
 class MailingListModal extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class MailingListModal extends React.Component {
         this.state = {
             open: false,
             email: '',
-            error: false
+            error: null
         }
 
         this.onClose = this.onClose.bind(this)
@@ -36,6 +37,19 @@ class MailingListModal extends React.Component {
     }
 
     onSubmit() {
+        if (validator.isEmail(this.state.email)) {
+            this.setState({ email: '', error: null })
+        }
+        else {
+            this.setState({ error: true })
+        }
+        // let promise ={}
+        // promise = sendEmail(this.state.email)
+        // promise.then(response => {
+        //     console.log(response)
+        // })
+        // .catch(console.error)
+
         //submit form function
     }
 
@@ -55,6 +69,7 @@ class MailingListModal extends React.Component {
                         <div>
                             <input className='form-control' type='email' name='email' value={this.state.email} placeholder='Enter Email...' onChange={this.valueChange} />
                         </div>
+                        {this.state.error ? <sub>Please, enter a valid email</sub> : null}
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className='submit-btn' onClick={this.onSubmit}>Yes, Count Me In!</Button>
