@@ -9,7 +9,8 @@ class MailingListModal extends React.Component {
         this.state = {
             open: false,
             email: '',
-            error: null
+            error: null,
+            confirm: null
         }
 
         this.onClose = this.onClose.bind(this)
@@ -38,7 +39,7 @@ class MailingListModal extends React.Component {
 
     onSubmit() {
         if (validator.isEmail(this.state.email)) {
-            this.setState({ email: '', error: null })
+            this.setState({ email: '', error: null, confirm: true })
         }
         else {
             this.setState({ error: true })
@@ -70,6 +71,7 @@ class MailingListModal extends React.Component {
                             <input className='form-control' type='email' name='email' value={this.state.email} placeholder='Enter Email...' onChange={this.valueChange} />
                         </div>
                         {this.state.error ? <sub>Please, enter a valid email</sub> : null}
+                        {this.state.confirm ? <sub>Thanks for signign up!</sub> : null}
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className='submit-btn' onClick={this.onSubmit}>Yes, Count Me In!</Button>
