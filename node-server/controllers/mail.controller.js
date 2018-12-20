@@ -7,7 +7,7 @@ const sendList = (req, res) => {    const { query: { from = 'goddammitSoo@dispos
     const msg = {
         to: req.body.to,
         from,
-        subject: 'Thank you!',
+        subject: 'Congrats!',
         text: 'Now that you have signed up, you will get access to the lastest news!',
         html: '<strong>Thank You!</strong>',
         templateId: '4c90a9b7-f7d3-4516-ab4c-efc6f959ed99'
@@ -15,8 +15,8 @@ const sendList = (req, res) => {    const { query: { from = 'goddammitSoo@dispos
 
     sgMail.send(msg).then(() => {
         res.status(200).end();
-    }).catch(e => {
-        console.error(e.toString());
+    }).catch(error => {
+        console.error(error.toString());
         res.status(500).end();
     });
 }
