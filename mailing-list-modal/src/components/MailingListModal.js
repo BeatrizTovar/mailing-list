@@ -44,12 +44,12 @@ class MailingListModal extends React.Component {
         else {
             this.setState({ error: true })
         }
-        // let promise ={}
-        // promise = sendEmail(this.state.email)
-        // promise.then(response => {
-        //     console.log(response)
-        // })
-        // .catch(console.error)
+        let promise ={}
+        promise = sendEmail(this.state.email)
+        promise.then(response => {
+            console.log(response)
+        })
+        .catch(console.error)
 
         //submit form function
     }
