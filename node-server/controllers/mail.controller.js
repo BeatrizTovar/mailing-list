@@ -1,7 +1,7 @@
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-const sendList = (req, res) => {    const { query: { from = 'goddammitSoo@dispostable.com' } } = req;
+const sendList = (req, res) => {    const { query: { from = 'beatest@dispostable.com' } } = req;
     // other options could be customized further
     
     const msg = {
@@ -10,7 +10,6 @@ const sendList = (req, res) => {    const { query: { from = 'goddammitSoo@dispos
         subject: 'Congrats!',
         text: 'Now that you have signed up, you will get access to the lastest news!',
         html: '<strong>Thank You!</strong>',
-        templateId: '4c90a9b7-f7d3-4516-ab4c-efc6f959ed99'
     };
 
     sgMail.send(msg).then(() => {
